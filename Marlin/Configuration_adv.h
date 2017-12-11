@@ -74,7 +74,7 @@
    * If you get false positives for "Heating failed" increase WATCH_TEMP_PERIOD and/or decrease WATCH_TEMP_INCREASE
    * WATCH_TEMP_INCREASE should not be below 2.
    */
-  #define WATCH_TEMP_PERIOD 20                // Seconds
+  #define WATCH_TEMP_PERIOD 240                // Seconds
   #define WATCH_TEMP_INCREASE 2               // Degrees Celsius
 #endif
 
@@ -94,7 +94,7 @@
    * If you get too many "Heating failed" errors, increase WATCH_BED_TEMP_PERIOD and/or decrease
    * WATCH_BED_TEMP_INCREASE. (WATCH_BED_TEMP_INCREASE should not be below 2.)
    */
-  #define WATCH_BED_TEMP_PERIOD 60                // Seconds
+  #define WATCH_BED_TEMP_PERIOD 480                // Seconds
   #define WATCH_BED_TEMP_INCREASE 2               // Degrees Celsius
 #endif
 
@@ -118,7 +118,7 @@
  * Also, if the temperature is set to a value below mintemp, it will not be changed by autotemp.
  * On an Ultimaker, some initial testing worked with M109 S215 B260 F1 in the start.gcode
  */
-#define AUTOTEMP
+// #define AUTOTEMP
 #if ENABLED(AUTOTEMP)
   #define AUTOTEMP_OLDWEIGHT 0.98
 #endif
@@ -350,7 +350,7 @@
 #define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 2
 #define HOMING_BUMP_DIVISOR {2, 2, 4}  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
-//#define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
+#define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
 
 // When G28 is called, this option will make Y home before X
 //#define HOME_Y_BEFORE_X
@@ -371,10 +371,10 @@
 // Default stepper release if idle. Set to 0 to deactivate.
 // Steppers will shut down DEFAULT_STEPPER_DEACTIVE_TIME seconds after the last move when DISABLE_INACTIVE_? is true.
 // Time can be set by M18 and M84.
-#define DEFAULT_STEPPER_DEACTIVE_TIME 120
+#define DEFAULT_STEPPER_DEACTIVE_TIME 300
 #define DISABLE_INACTIVE_X true
 #define DISABLE_INACTIVE_Y true
-#define DISABLE_INACTIVE_Z true  // set to false if the nozzle will fall down on your printed part when print has finished.
+#define DISABLE_INACTIVE_Z false  // set to false if the nozzle will fall down on your printed part when print has finished.
 #define DISABLE_INACTIVE_E true
 
 #define DEFAULT_MINIMUMFEEDRATE       0.0     // minimum feedrate
@@ -455,10 +455,10 @@
 // @section lcd
 
 // Include a page of printer information in the LCD Main Menu
-//#define LCD_INFO_MENU
+#define LCD_INFO_MENU
 
 // Scroll a longer status message into view
-//#define STATUS_MESSAGE_SCROLLING
+#define STATUS_MESSAGE_SCROLLING
 
 // On the Info Screen, display XY with one decimal place when possible
 //#define LCD_DECIMAL_SMALL_XY
@@ -599,14 +599,14 @@
  *
  * Warning: Does not respect endstops!
  */
-//#define BABYSTEPPING
+#define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
   //#define BABYSTEP_XY              // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false    // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR 100 // Babysteps are very small. Increase for faster motion.
-  //#define BABYSTEP_ZPROBE_OFFSET   // Enable to combine M851 and Babystepping
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
-  #define DOUBLECLICK_MAX_INTERVAL 1250 // Maximum interval between clicks, in milliseconds.
+  #define BABYSTEP_MULTIPLICATOR 10// Babysteps are very small. Increase for faster motion.
+  #define BABYSTEP_ZPROBE_OFFSET   // Enable to combine M851 and Babystepping
+  #define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
+  #define DOUBLECLICK_MAX_INTERVAL 2000 // Maximum interval between clicks, in milliseconds.
                                         // Note: Extra time may be added to mitigate controller latency.
   //#define BABYSTEP_ZPROBE_GFX_OVERLAY // Enable graphical overlay on Z-offset editor
   //#define BABYSTEP_ZPROBE_GFX_REVERSE // Reverses the direction of the CW/CCW indicators
@@ -816,7 +816,7 @@
  * Requires an LCD display.
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
-//#define ADVANCED_PAUSE_FEATURE
+#define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_X_POS 3                  // X position of hotend
   #define PAUSE_PARK_Y_POS 3                  // Y position of hotend
@@ -840,7 +840,7 @@
                                               // 0 to disable for manual extrusion
                                               // Filament can be extruded repeatedly from the filament exchange menu to fill the hotend,
                                               // or until outcoming filament color is not clear for filament color change
-  #define PAUSE_PARK_NOZZLE_TIMEOUT 45        // Turn off nozzle if user doesn't change filament within this time limit in seconds
+  #define PAUSE_PARK_NOZZLE_TIMEOUT 120        // Turn off nozzle if user doesn't change filament within this time limit in seconds
   #define FILAMENT_CHANGE_NUMBER_OF_ALERT_BEEPS 5 // Number of alert beeps before printer goes quiet
   #define PAUSE_PARK_NO_STEPPER_TIMEOUT       // Enable to have stepper motors hold position during filament change
                                               // even if it takes longer than DEFAULT_STEPPER_DEACTIVE_TIME.
