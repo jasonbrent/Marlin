@@ -1,5 +1,5 @@
 /**
- * Marlin 3D Printer Firmware
+* Marlin 3D Printer Firmware - Customized by TH3D Studio (TH3DStudio.com)
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
@@ -240,6 +240,9 @@ void MarlinSettings::postprocess() {
 
   #if DISABLED(NO_VOLUMETRICS)
     planner.calculate_volumetric_multipliers();
+  #else
+      for (uint8_t i = 0; i < COUNT(planner.e_factor); ++i)
+      planner.refresh_e_factor(i);
   #endif
 
   #if HAS_HOME_OFFSET || ENABLED(DUAL_X_CARRIAGE)

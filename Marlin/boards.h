@@ -1,5 +1,5 @@
 /**
- * Marlin 3D Printer Firmware
+* Marlin 3D Printer Firmware - Customized by TH3D Studio (TH3DStudio.com)
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
@@ -97,6 +97,7 @@
 #define BOARD_SCOOVO_X9H        321   // abee Scoovo X9H
 #define BOARD_GT2560_REV_A      74    // Geeetech GT2560 Rev. A
 #define BOARD_GT2560_REV_A_PLUS 75    // Geeetech GT2560 Rev. A+ (with auto level probe)
+#define BOARD_CR10S             476   // Creality CR-10S Board
 
 //
 // ATmega1281, ATmega2561
@@ -114,6 +115,7 @@
 #define BOARD_MELZI             63    // Melzi
 #define BOARD_MELZI_MAKR3D      66    // Melzi with ATmega1284 (MaKr3d version)
 #define BOARD_MELZI_CREALITY    89    // Melzi Creality3D board (for CR-10 etc)
+#define BOARD_MELZI_CREALITY_ENDER2 475 // Melzi Creality3D board (for Ender2)
 #define BOARD_STB_11            64    // STB V1.1
 #define BOARD_AZTEEG_X1         65    // Azteeg X1
 

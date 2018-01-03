@@ -1,5 +1,5 @@
 /**
- * Marlin 3D Printer Firmware
+* Marlin 3D Printer Firmware - Customized by TH3D Studio (TH3DStudio.com)
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
@@ -63,7 +63,13 @@
 #endif
 
 #if ENABLED(SHOW_BOOTSCREEN) && ENABLED(SHOW_CUSTOM_BOOTSCREEN)
-  #include "_Bootscreen.h"
+  #if ENABLED(TM3D_BOOT)
+    #include "_BootscreenTM3D.h"
+  #elif ENABLED(TORNADO_BOOT) && ENABLED(TORNADO)
+    #include "_BootscreenTORNADO.h"
+  #else
+    #include "_Bootscreen.h"
+  #endif  
 #endif
 
 // Only Western languages support big / small fonts

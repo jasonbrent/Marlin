@@ -1,5 +1,5 @@
 /**
- * Marlin 3D Printer Firmware
+* Marlin 3D Printer Firmware - Customized by TH3D Studio (TH3DStudio.com)
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
@@ -52,7 +52,12 @@
 #define LCD_PINS_RS        28 // st9720 CS
 #define LCD_PINS_ENABLE    17 // st9720 DAT
 #define LCD_PINS_D4        30 // st9720 CLK
-#define FIL_RUNOUT_PIN     -1 // Uses Beeper/LED Pin Pulled to GND
+#if ENABLED(EZOUT_ENABLE)
+  #define FIL_RUNOUT_PIN  27
+  #define BEEPER_PIN      -1
+#else
+  #define FIL_RUNOUT_PIN     -1 // Uses Beeper/LED Pin Pulled to GND
+#endif
 
 // Alter timing for graphical display
 #define ST7920_DELAY_1 DELAY_2_NOP

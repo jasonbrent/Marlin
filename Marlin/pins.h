@@ -1,5 +1,5 @@
 /**
- * Marlin 3D Printer Firmware
+* Marlin 3D Printer Firmware - Customized by TH3D Studio (TH3DStudio.com)
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
@@ -172,6 +172,8 @@
   #include "pins_GT2560_REV_A_PLUS.h" // ATmega1280, ATmega2560
 #elif MB(SILVER_GATE)
   #include "pins_SILVER_GATE.h"       // ATmega2561
+#elif MB(CR10S)
+  #include "pins_RAMPS_CR10S.h"       // ATmega2560
 
 //
 // ATmega1281, ATmega2561
@@ -194,6 +196,8 @@
   #include "pins_MELZI_MAKR3D.h"      // ATmega644P, ATmega1284P
 #elif MB(MELZI_CREALITY)
   #include "pins_MELZI_CREALITY.h"    // ATmega644P, ATmega1284P
+#elif MB(MELZI_CREALITY_ENDER2)
+  #include "pins_MELZI_CREALITY_ENDER2.h" // ATmega644P, ATmega1284P
 #elif MB(STB_11)
   #include "pins_STB_11.h"            // ATmega644P, ATmega1284P
 #elif MB(AZTEEG_X1)
